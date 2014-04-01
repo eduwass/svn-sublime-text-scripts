@@ -10,6 +10,15 @@ GNU GENERAL PUBLIC LICENSE Version 3
 Description
 ========================
 The package contains 7 scripts which do the following:
+- svnadd : Adds all unversioned files
+- svncommit : Runs diff/patch/export/tests (if wanted) and then commits
+- svndeleteunversioned : Deletes all unversioned files
+- svndiff : Displays diff on your favourite editor (subl)
+- svnexport : Exports to given destination (passed either by parameter or prompted)
+- svnmylast : Displays your last commits (use at your own risk, can be very slow)
+- svnpatch : Creates patch in given destination (passed either by parameter or prompted)
+- svnstatusall : Run it on a dir with a lot of repositories and it will 'svn status' all found repositories
+- svnupdateall : Run it on a dir with a lot of repositories and it will update all found repositories
 
 Installation:
 ========================
