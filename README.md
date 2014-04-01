@@ -2,7 +2,9 @@ svn-sublime-text-scripts
 ========================
 
 Handy little SVN scripts you can use in conjuction with Sublime Text
+
 Made by: eduwass@gmail.com
+
 GNU GENERAL PUBLIC LICENSE Version 3
 
 Description
