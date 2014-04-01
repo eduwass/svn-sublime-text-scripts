@@ -1,0 +1,7 @@
+#! /bin/bash
+# Made by: eduwass@gmail.com
+# GNU GENERAL PUBLIC LICENSE Version 3
+
+# SVN: Deletes all unversioned files
+
+svn status | grep ^\? | cut -c9- | xargs -d \\n rm -r

@@ -1,0 +1,19 @@
+#! /bin/bash
+# Made by: eduwass@gmail.com
+# GNU GENERAL PUBLIC LICENSE Version 3
+
+# SVN: Exports to given destination (passed either by parameter or prompted)
+if [[ -n "$1" ]]
+then
+	EXPORTPATH=$1
+else
+	echo "Please enter path destination of export: "
+	read EXPORTPATH
+	EXPORTPATH=${EXPORTPATH/\~/$HOME}
+fi
+
+mkdir $EXPORTPATH
+echo "Exporting to: $EXPORTPATH"
+echo "========================================"
+svn status | grep '^[ADMR]' | cut -b 8- | xargs -I '{}' cp --parents {} $EXPORTPATH
+ls -lha $EXPORTPATH

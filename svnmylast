@@ -1,0 +1,14 @@
+#! /bin/bash
+# Made by: eduwass@gmail.com
+# GNU GENERAL PUBLIC LICENSE Version 3
+
+# SVN: Displays your last commits (use at your own risk, can be very slow)
+
+#=======================#
+# SETUP
+SVNUSERNAME="edu"		# Your SVN username
+LOGLIMIT="500" 			# Note that a bigger limit will make the script slower
+#=======================#
+
+svn log -v --limit $LOGLIMIT  | sed -n '/'$SVNUSERNAME'/,/-----$/ p' > /tmp/my_last_commits
+subl /tmp/my_last_commits

@@ -1,0 +1,56 @@
+#! /bin/bash
+# Made by: eduwass@gmail.com
+# GNU GENERAL PUBLIC LICENSE Version 3
+
+# SVN: Commit
+
+#=======================#
+# SETUP
+SCRIPTS=/home/edu/source/scripts/	 # Path to all the other scripts
+TESTCMD='php '$(pwd)"/test/tots.php" # Command for running tests
+#=======================#
+
+echo "===================================================="
+pwd
+echo "[STATUS] "
+svn status
+echo "===================================================="
+# Do you want to display diff?
+read -p "Do you want to display diff? (y/n) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    "$SCRIPTS/svndiff"
+fi
+echo "===================================================="
+# Do you want to create a patch?
+read -p "Do you want to create patch? (y/n) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    "$SCRIPTS/svnpatch"
+fi
+echo "===================================================="
+# Do you want to export?
+read -p "Do you want to export? (y/n) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    "$SCRIPTS/svnexport"
+fi
+echo "===================================================="
+# Do you want to test? (start-commit hook)
+read -p "Do you want to run tests? (y/n) " -n 1 -r
+echo    # (optional)sv move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    $TESTCMD
+fi
+echo "===================================================="
+# Do you want to commit?
+read -p "Do you want to commit? (y/n) " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    svn commit
+fi

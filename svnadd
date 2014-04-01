@@ -1,0 +1,10 @@
+#! /bin/bash
+# Made by: eduwass@gmail.com
+# GNU GENERAL PUBLIC LICENSE Version 3
+
+# SVN: Adds all unversioned files
+
+for i in $(svn status | awk '{if($1=="?")print $2}')
+do 
+	svn add $i
+done

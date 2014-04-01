@@ -1,0 +1,16 @@
+#! /bin/bash
+# Made by: eduwass@gmail.com
+# GNU GENERAL PUBLIC LICENSE Version 3
+
+# SVN: Creates patch in given destination (passed either by parameter or prompted)
+if [[ -n "$1" ]]
+then
+	PATCH_PATH=$1
+else
+	echo "Please enter path destination of Patch: "
+	read PATCH_PATH
+	PATCH_PATH=${PATCH_PATH/\~/$HOME}
+fi
+
+# Crear un patch
+svn diff > $PATCH_PATH

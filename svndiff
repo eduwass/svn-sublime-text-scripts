@@ -1,0 +1,26 @@
+#! /bin/bash
+# Made by: eduwass@gmail.com
+# GNU GENERAL PUBLIC LICENSE Version 3
+
+# SVN: Displays diff on your favourite editor
+# Optional argument -c specifies a revision number to diff
+
+#=======================#
+# SETUP
+EDITOR="subl"		# editor (command-line)
+#=======================#
+
+if [ $# -eq 0 ]
+  then
+    # No arguments -> diff working dir
+    _dir=${PWD##*/} # working dir
+	svn diff > /tmp/diff_"$_dir"
+	$EDITOR /tmp/diff_"$_dir"
+fi
+
+if [ "$1" == -c ]
+  then
+    # Argument -c -> diff's specific commit
+	svn diff -c "$2" > /tmp/diff_"$2"
+	$EDITOR /tmp/diff_"$2"
+fi

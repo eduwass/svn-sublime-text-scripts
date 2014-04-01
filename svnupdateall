@@ -1,0 +1,20 @@
+#! /bin/bash
+# Made by: eduwass@gmail.com
+# GNU GENERAL PUBLIC LICENSE Version 3
+
+# SVN: Run it on a dir with a lot of repositories and it will update all found repositories
+
+#=======================#
+# SETUP
+DIRECTORIO="/home/edu/source"
+#=======================#
+
+for i in $(find $DIRECTORIO -type d -name .svn)
+do
+   cd "$i"
+   cd ..
+   echo "========================================"
+   pwd
+   echo "========================================"
+   svn update
+done
