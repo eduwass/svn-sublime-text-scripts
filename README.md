@@ -2,6 +2,7 @@ svn-sublime-text-scripts
 ========================
 
 Handy little SVN scripts you can use in conjuction with Sublime Text
+Tested with svn 1.7.9, other versions may need tweaks
 
 Made by: eduwass@gmail.com
 
